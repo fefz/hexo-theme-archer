@@ -15,10 +15,16 @@ gulp.task('webpack', function (cb) {
 
 // sass
 gulp.task('sass', function () {
+  const postcss      = require('gulp-postcss');
+  const sourcemaps   = require('gulp-sourcemaps');
+  const autoprefixer = require('autoprefixer');
   return gulp.src(['./src/scss/style.scss', './src/scss/mobile.scss'])
     .pipe(sass({
       outputStyle: 'compressed'
     }).on('error', sass.logError))
+    .pipe(sourcemaps.init())
+    .pipe(postcss([ autoprefixer() ]))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./source/css/'))
 })
 

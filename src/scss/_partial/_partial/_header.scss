@@ -91,7 +91,6 @@
   border: 2px solid #fff;
   width: 1.5rem;
   height: 1.5rem;
-  transform: translate(0, -50%);
   font-family: 'iconfont-archer';
   color: #fff;
   text-align: center;
@@ -101,7 +100,6 @@
   &:hover {
     background-color: #fff;
     color: #000;
-    transform: translate(0, -50%);
   }
 }
 

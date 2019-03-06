@@ -75,7 +75,7 @@ li {
 .back-top {
   position: fixed;
   display: block;
-  left: 1rem;
+  right: 1rem;
   bottom: 1rem;
   z-index: 10;
   opacity: 0;
@@ -116,4 +116,9 @@ li {
 .fancy-link {
   padding: 0 !important;
   margin: 0 !important;
+}
+
+// ============ flip the arrow =========== //
+.flip-arrow {
+  transform: rotateY(180deg) !important;
 }

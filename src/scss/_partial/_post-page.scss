@@ -194,14 +194,15 @@
   }
 
   .nextSlogan {
-    &::before {
-      content: '< ';
+    text-align: right;
+    &::after {
+      content: ' >';
       font-size: 1.7rem;
     }
   }
   .prevSlogan {
-    &::after {
-      content: ' >';
+    &::before {
+      content: '< ';
       font-size: 1.7rem;
     }
   }
