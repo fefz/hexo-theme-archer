@@ -3,3 +3,7 @@ node_modules
 _config_.yml
 _config__.yml
 .jsbeautifyrc
+source/css
+source/scripts
+/source/scripts/
+/source/css/

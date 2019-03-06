@@ -95,8 +95,13 @@ class Sidebar {
   }
 
   _bindButtonClick() {
-    this.$menuButton.click(e => {
-      this.activateSidebar()
+    const self = this
+    self.$menuButton.click(e => {
+      if (self.$menuButton.hasClass('flip-arrow')) {
+        self._inactivateSidebar()
+      } else {
+        self.activateSidebar()
+      }
     })
   }
 
