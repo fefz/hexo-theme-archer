@@ -30,15 +30,15 @@ gulp.task('sass', function () {
 
 // browser-sync
 // watch js
-gulp.task('reload-js', ['webpack'], function (done) {
+gulp.task('reload-js', gulp.series('webpack', function (done) {
   browserSync.reload()
   done()
-})
+}))
 // watch sass
-gulp.task('reload-css', ['sass'], function (done) {
+gulp.task('reload-css', gulp.series('sass', function (done) {
   browserSync.reload()
   done()
-})
+}))
 // watch layout
 gulp.task('reload-layout', function (done) {
   browserSync.reload()
@@ -50,7 +50,7 @@ gulp.task('reload-config', function (done) {
   done()
 })
 
-gulp.task('dev', ['webpack', 'sass'], function () {
+gulp.task('dev', gulp.series('webpack', 'sass', function () {
   browserSync.init({
     proxy: 'localhost:4000'
   })
@@ -58,7 +58,7 @@ gulp.task('dev', ['webpack', 'sass'], function () {
   gulp.watch(['./src/scss/**/*.scss'], ['reload-css'])
   gulp.watch(['./layout/**/*.ejs'], ['reload-layout'])
   gulp.watch(['./_config.yml'], ['reload-config'])
-})
+}))
 
 
 /* ========== bulid ========== */
@@ -71,6 +71,7 @@ gulp.task('webpack-prod', function (cb) {
   })
 })
 
-gulp.task('build', ['sass', 'webpack-prod'], function () {
+gulp.task('build', gulp.series('sass', 'webpack-prod', function (done) {
   console.log(process.argv)
-})
+  done()
+}))
