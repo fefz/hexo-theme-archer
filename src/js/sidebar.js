@@ -41,6 +41,7 @@ class Sidebar {
     $('.toc-wrapper').addClass('toc-slide')
     this.$sidebar.removeClass('sidebar-hide')
     this.$sidebar.addClass('sidebar-active')
+    this.$menuButton.addClass('flip-arrow')
   }
 
   _inactivateSidebar() {
@@ -48,6 +49,7 @@ class Sidebar {
     $('.header').removeClass('header-sidebar-active')
     $('.toc-wrapper').removeClass('toc-slide')
     this.$sidebar.removeClass(`sidebar-active`)
+    this.$menuButton.removeClass('flip-arrow')
   }
 
   switchTo(toIndex) {
